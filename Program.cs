@@ -68,11 +68,11 @@ namespace Lab_01a
             }
             catch (FormatException e)
             {
-                throw e.Message("Your formatting is incorrect");
+                throw e.Message;
             }
             catch (OverflowException e)
             {
-                throw e.Message("Number is to large");
+                throw e.Message;
             }
         }
         // creates an array based on the users input
@@ -132,7 +132,7 @@ namespace Lab_01a
             decimal quotient = decimal.Divide(product, convertedUserDivision);
             if (convertedUserDivision == 0)
             {
-                throw new Exception($"You cannot divide {product} by 0, please try again");
+                throw new DivideByZeroException($"You cannot divide {product} by 0, please try again");
             }
             return quotient;
         }
