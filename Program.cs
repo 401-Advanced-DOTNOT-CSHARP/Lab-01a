@@ -20,6 +20,7 @@ namespace Lab_01a
                 Console.WriteLine("Console is complete");
             }
         }
+        // Calls all the other methods, prompts user for input and displays the results to the user
         static void StartSequence()
         {
             Console.WriteLine("Welcome to my game! Let's do some math!");
@@ -27,7 +28,7 @@ namespace Lab_01a
             string number = Console.ReadLine();
             try
             {
-                int convertedNumber = Convert.ToInt32(number);
+                int convertedNumberforever = Convert.ToInt32(number);
                 if (number == "0")
                 {
                     Console.WriteLine("You entered 0, read the instructions again");
@@ -65,11 +66,16 @@ namespace Lab_01a
 
                 }
             }
-            catch (Exception e)
+            catch (FormatException e)
             {
-                throw e;
+                throw e.Message("Your formatting is incorrect");
+            }
+            catch (OverflowException e)
+            {
+                throw e.Message("Number is to large");
             }
         }
+        // creates an array based on the users input
         static int[] Populate(int[] userNumberArray)
         {
             for (int i = 1; i <= userNumberArray.Length; i++)
@@ -82,6 +88,7 @@ namespace Lab_01a
             }
             return userNumberArray;
         }
+        // calculates sum based on users input
         static int GetSum(int[] numbers)
         {
             int sum = 0;
@@ -96,6 +103,7 @@ namespace Lab_01a
             }
             return sum;
         }
+        // calculates the product based on the users input
         static int GetProduct(int[] array, int sum)
         {
             try
@@ -114,6 +122,7 @@ namespace Lab_01a
                 throw e;
             }
         }
+        // calculates quotient based on the users input
         static decimal GetQuotient(int product)
         {
             Console.WriteLine("Enter a number to divide {0} by", product);
